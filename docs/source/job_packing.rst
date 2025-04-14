@@ -226,4 +226,4 @@ The script would be similar to the previous cases
    cd ../
    wait
 
-These are the three main tools that people use in this group, hence they have been picked as examples. If you need help running something else, please reach out (vishnura@illinois.edu, 
+These are the three main tools that people use in this group, hence they have been picked as examples. If you need help running something else, please reach out (vishnura@illinois.edu)
