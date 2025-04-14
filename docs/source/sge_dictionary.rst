@@ -49,3 +49,15 @@ This includes the ones discussed in the Jobs section
   # Request a reservation, which means that the job will only run when the number of cores you requested are available on a single node. 
   # Otherwise your job will still get the requested number of cores, but it can be distributed across nodes.
   #$ -R y
+
+  # I want only my job to run on a particular node
+  #$ -l exclusive
+
+Commands
+----------
+
+1. ``qstat`` : Status of all jobs in the queue right now. Use ``qstat -f`` for more detailed information on what is happening on each node.
+2. ``qdel JOB_NUMBER`` : Delete a job (identified by the job number)
+3. ``qalter (keyword) JOB_NUMBER`` : Alter the job information (identified by job number), for example ``qalter -l h_rt=48:00:00 88802`` change the walltime of job 88802 to 48 hours
+4. ``qconf -sh``: Shows all the nodes available for computing
+5. ``qlogin (keywords)``: Start an interactive job
