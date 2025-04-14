@@ -14,6 +14,7 @@ Contents
 
    about
    software
-   compiling
    jobs
+   job_packing
+   high_prority_policy
    support
