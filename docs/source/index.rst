@@ -1,7 +1,7 @@
 Welcome to the Scruggs documentation!
 ===================================
 
-**Scruggs** is the computing cluster used by the Jackson group at UIUC. 
+**Scruggs** is the computing cluster used by the Jackson group at UIUC (https://thejacksonlab.web.illinois.edu/wp/). 
 
 Check out the documentation for further information, starting with the ``About`` section
 
