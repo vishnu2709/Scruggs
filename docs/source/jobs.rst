@@ -27,7 +27,8 @@ Scruggs uses the Sun Grid Engine (SGE) as the job scheduler. SGE requires the jo
   # specify the file to write stderr to
   #$ -e tetra.err
 
-  # specify how many cores you want to use in your job (max 48)
+  # specify how many cores you want to use in your job
+  # There are 48 cores in a node, if you ask for more than 48 cores, it will split your job across multiple nodes.
   # Here ORTE is the parallel environment which manages the OpenMPI integration for SGE. I don't know more about this.
   #$ -pe orte 48
 
