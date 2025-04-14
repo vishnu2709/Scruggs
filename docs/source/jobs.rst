@@ -40,7 +40,7 @@ Scruggs uses the Sun Grid Engine (SGE) as the job scheduler. SGE requires the jo
   # Here is the actual code that I want to run
   mpirun -np 48 /home/vishnura/lammps_mc/build/lmp -in MD_Simulation.in -screen stdout
 
-Let's say this is put in a file called lammps_job_mpi.sh. We can submit the job using the command
+Other SGE keywords are present in the SGE information section. Let's say this is put in a file called lammps_job_mpi.sh. We can submit the job using the command
 
 .. code-block:: console
 
