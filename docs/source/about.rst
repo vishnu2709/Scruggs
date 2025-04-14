@@ -1,32 +1,13 @@
 About
 =====
 
-Installation
-------------
+Scruggs contains 16 CPU nodes, each consisting of a dual socket Intel Xeon Gold CPUs with 48 cores. It also contains 2 GPU nodes, each with an 24-core AMD EPYC 7352 processor and 4 NVIDIA A30 GPUs, each with 24 GB virtual memory.
 
-To use Lumache, first install it using pip:
-
-.. code-block:: console
-
-   (.venv) $ pip install lumache
-
-Creating recipes
+How to login
 ----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+When on campus network, you can connect to Scruggs using SSH using ``yourid@scruggs.scs.illinois.edu``, for example
 
-.. autofunction:: lumache.get_random_ingredients
-
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
-
-.. autoexception:: lumache.InvalidKindError
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
-
+"""
+(base) vishnura@wirelessprv-10-195-28-85 ~ % ssh vishnura@scruggs.scs.illinois.edu
+"""
