@@ -8,6 +8,6 @@ How to login
 
 When on campus network, you can connect to Scruggs using SSH using ``yourid@scruggs.scs.illinois.edu``, for example
 
-.. code-block::console
+.. code-block:: console
 
    (base) vishnura@wirelessprv-10-195-28-85 ~ % ssh vishnura@scruggs.scs.illinois.edu
