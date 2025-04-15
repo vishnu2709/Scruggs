@@ -84,61 +84,18 @@ You can then run it with:
 This will display all running jobs grouped by node, followed by a list of available nodes and a queue-to-node mapping.
 
 This is a mockup of the output:
-SGE Jobs Grouped by Node
-=========================
 
-.. list-table:: Jobs by Node
-   :widths: 20 10 10 15 20 10 20 8
-   :header-rows: 1
+.. code-block:: console
 
-   * - Node
-     - Queue
-     - Job ID
-     - User
-     - Job Name
-     - Resv/U/T
-     - Start Time
-     - State
-   * - compute-0-0.local
-     - all.q
-     - 90001
-     - alice
-     - sim-alpha
-     - 0/8/48
-     - 04/10/2025 09:20:00
-     - r
-   * - compute-0-0.local
-     - all.q
-     - 90002
-     - bob
-     - sim-beta
-     - 0/12/48
-     - 04/10/2025 09:21:10
-     - r
-   * - compute-0-1.local
-     - all.q
-     - 90003
-     - carol
-     - sim-gamma
-     - 0/6/48
-     - 04/10/2025 09:23:45
-     - r
-   * - compute-0-2.local
-     - all.q
-     - 90004
-     - dave
-     - sim-delta
-     - 0/4/48
-     - 04/10/2025 09:25:00
-     - r
-   * - compute-0-2.local
-     - test.q
-     - 90005
-     - eve
-     - test-epsilon
-     - 0/0/48
-     - 04/10/2025 09:26:30
-     - qw
+      SGE Jobs Grouped by Node
+      =========================
+      NODE                 QUEUE      JOB_ID     USER       JOB_NAME             RESV/U/T    START_TIME           STATE
+      ---------------------------------------------------------------------------------------------------------------
+   compute-0-0.local    all.q      90001      alice      sim-alpha            0/8/48      04/10/2025 09:20:00  r    
+   compute-0-0.local    all.q      90002      bob        sim-beta             0/12/48     04/10/2025 09:21:10  r    
+   compute-0-1.local    all.q      90003      carol      sim-gamma            0/6/48      04/10/2025 09:23:45  r    
+   compute-0-2.local    all.q      90004      dave       sim-delta            0/4/48      04/10/2025 09:25:00  r    
+   compute-0-2.local    high.q     90005      eve        test-epsilon         0/0/48      04/10/2025 09:26:30  qw   
 
 .. code-block:: bash
 
