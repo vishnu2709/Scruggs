@@ -1,7 +1,6 @@
 Aliases and Shortcuts
 =====================
 
-
 Aliases
 -------------------
 
@@ -66,3 +65,124 @@ To unmount the cluster when you're done:
 
 .. note::
     You can add the ``sshfs`` command to your ``.bashrc`` or ``.zshrc`` as an alias to make it easier to use.
+
+Scripts
+-------
+
+This script helps you check the status of jobs across all queues **without showing duplicate nodes**, making it easier to get a quick overview of resource usage. Save the script below to your home directory as ``check_gse.sh`` and make it executable:
+
+.. code-block:: bash
+
+   chmod +x check_gse.sh
+
+You can then run it with:
+
+.. code-block:: bash
+
+   ./check_gse.sh
+
+This will display all running jobs grouped by node, followed by a list of available nodes and a queue-to-node mapping.
+
+This is a mockup of the output:
+SGE Jobs Grouped by Node
+=========================
+
+.. list-table:: Jobs by Node
+   :widths: 20 10 10 15 20 10 20 8
+   :header-rows: 1
+
+   * - Node
+     - Queue
+     - Job ID
+     - User
+     - Job Name
+     - Resv/U/T
+     - Start Time
+     - State
+   * - compute-0-0.local
+     - all.q
+     - 90001
+     - alice
+     - sim-alpha
+     - 0/8/48
+     - 04/10/2025 09:20:00
+     - r
+   * - compute-0-0.local
+     - all.q
+     - 90002
+     - bob
+     - sim-beta
+     - 0/12/48
+     - 04/10/2025 09:21:10
+     - r
+   * - compute-0-1.local
+     - all.q
+     - 90003
+     - carol
+     - sim-gamma
+     - 0/6/48
+     - 04/10/2025 09:23:45
+     - r
+   * - compute-0-2.local
+     - all.q
+     - 90004
+     - dave
+     - sim-delta
+     - 0/4/48
+     - 04/10/2025 09:25:00
+     - r
+   * - compute-0-2.local
+     - test.q
+     - 90005
+     - eve
+     - test-epsilon
+     - 0/0/48
+     - 04/10/2025 09:26:30
+     - qw
+
+.. code-block:: bash
+
+   #!/bin/bash
+
+   echo "=== SGE Jobs Grouped by Node ==="
+   # Print header
+   header=$(printf "%-20s %-10s %-10s %-10s %-20s %-12s %-20s %-5s\n" \
+   "NODE" "QUEUE" "JOB_ID" "USER" "JOB_NAME" "RESV/U/T" "START_TIME" "STATE")
+   echo "$header"
+   echo "---------------------------------------------------------------------------------------------------------------"
+
+   # Collect job info and sort by node name
+   qstat -f -u "*" | awk '
+   BEGIN { OFS="\t" }
+   /^[a-zA-Z]/ {
+      split($1, queue_parts, "@")
+      queue = queue_parts[1]
+      node = queue_parts[2]
+      resv_used_tot = $3
+      next
+   }
+   /^[[:space:]]+[0-9]/ {
+      job_id = $1
+      job_name = $3
+      user = $4
+      state = $5
+      start_time = $6 " " $7
+      print node, queue, job_id, user, job_name, resv_used_tot, start_time, state
+   }
+   ' | sort -k1,1 | awk -F'\t' -v fmt="%-20s %-10s %-10s %-10s %-20s %-12s %-20s %-5s\n" \
+   '{ printf fmt, $1, $2, $3, $4, $5, $6, $7, $8 }'
+
+   if [ $? -ne 0 ] || [ -z "$(qstat -f -u "*")" ]; then
+      echo "No jobs currently running in the cluster."
+      echo ""
+      echo "=== Available Nodes ==="
+      qhost | grep -v "global" | grep -v "HOSTNAME"
+   fi
+
+   echo ""
+   echo "=== Queue to Node Mapping ==="
+   for queue in $(qconf -sql); do
+      echo -n "Queue $queue: "
+      qconf -sq $queue | awk '/hostlist/ {for (i=2; i<=NF; i++) printf "%s ", $i}'
+      echo ""
+   done
