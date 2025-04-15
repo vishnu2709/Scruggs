@@ -1,10 +1,13 @@
 Jobs
 =======
 
+Job Submission Basics
+---------------------
 
-Overview
-----------
-In most computing clusters, users run their code by executing a job script, also known as "submitting a job". A job script is basically a request to run. In this request, you specify what you want to run, where you want to run it, the resources you need, how much time you want to run it for, and other information. Once a job is submitted, it goes to a queue along with all the other jobs submitted. A job scheduler software decides which jobs get to run, based on the availability of free nodes in the cluster and the nature of the job. 
+In most computing clusters, users run their code by submitting a *job script* — a file that tells the system what to run, where to run it, and what resources are needed. This script acts like a formal request: you specify the command to execute, the number of CPUs or GPUs, how much time you expect the job to take, and any other requirements.
+
+Once submitted, your job enters a queue alongside others. A scheduler then decides when and where each job runs, based on available resources and job priorities.
+
 
 Submitting a job
 ------------------

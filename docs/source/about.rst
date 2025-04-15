@@ -12,6 +12,15 @@ When on campus network, you can connect to Scruggs using SSH using ``yourid@scru
 
    (base) vishnura@wirelessprv-10-195-28-85 ~ % ssh vishnura@scruggs.scs.illinois.edu
 
+.. note::
+   When setting up your local machine, we recommend using your Illinois NetID as your username. This helps avoid issues when connecting to the cluster, since your local and remote usernames will match. With this setup, you can simply connect to Scruggs using:
+
+   .. code-block:: console
+
+      (base) yourid@local-pc ~ % ssh scruggs.scs.illinois.edu
+
+   This is equivalent to ``ssh yourid@scruggs.scs.illinois.edu``, and it helps streamline your workflow.
+
 If you do not have an account on Scruggs or you are unable to log in, reach out to Prof. Nick Jackson (jacksonn@illinois.edu).
 
 Note that Scruggs is not accessible outside the campus network. To access Scruggs from outside you need to use a VPN. Instructions on how to download and set up the VPN to connect to campus is given at https://answers.uillinois.edu/illinois/98773
