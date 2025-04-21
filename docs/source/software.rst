@@ -26,9 +26,9 @@ To remove a module from your environment, use the ``module unload`` command
 Compiling your software
 -------------------------
 
-If you need a library/software that is not available in the module, you are free to compile it for yourself. Scruggs has gcc and intel compilers, and the openmpi library for parallel applications. It has also cmake (PS: In my opinion, the cmake version on Scruggs is a bit outdated. I recommend getting a newer cmake version from online and buiding it).
+If you need a library/software that is not available in the module, you are free to compile it for yourself. Scruggs has gcc and intel compilers, and the openmpi library for parallel applications. It also has `cmake` (PS: In my opinion, the cmake version on Scruggs is a bit outdated. I recommend getting a newer cmake version from online and buiding it).
 
-For python based software, you can load the anaconda module.
+For Python based software, you can load the anaconda module.
 
 For GPU accelerated software, it is important for you to build your GPU code on the compute-0-6 and compute-0-7 GPU nodes directly. To do this, you can ssh to the nodes directly.
 

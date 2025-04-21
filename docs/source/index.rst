@@ -15,6 +15,7 @@ Contents
    software
    jobs
    job_packing
+   alias
    sge_dictionary
    high_prority_policy
    support
