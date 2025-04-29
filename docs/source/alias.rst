@@ -39,6 +39,12 @@ You can even create separate SSH keys for each server, like ``lop`` and ``scrugg
 
 Repeat the process for ``scruggs`` with a different key name if desired. After this setup, your SSH connections will no longer require a password.
 
+Now you can log into the cluster with:
+.. code-block:: bash
+
+   ssh -i /Users/yourid/.ssh/id_lop yourid@lop.scs.illinois.edu
+
+Make sure your alias is modified to use the key file, especially if you have a mismatch in your local username and the username on the cluster.
 
 Mounting and Unmounting the Cluster
 -----------------------------------
@@ -51,6 +57,10 @@ First, make sure the ``sshfs`` package is installed on your local machine. Then,
 
    mkdir ~/scruggs/
    sshfs yourid@scruggs.scs.illinois.edu:/home/yourid/ ~/scruggs/
+
+In the case that your username on the cluster is different from your local username, you can use the following command instead:
+.. code-block:: bash
+   sshfs -o IdentityFile=/Users/yourid/.ssh/id_scruggs yourid@scruggs.scs.illinois.edu:/home/yourid/ ~/scruggs/
 
 Now you can browse, open, and edit files on the cluster directly from your local machine.
 
