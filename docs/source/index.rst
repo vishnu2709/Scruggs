@@ -15,6 +15,7 @@ Contents
    software
    jobs
    job_packing
+   high_throughput
    alias
    sge_dictionary
    high_prority_policy
