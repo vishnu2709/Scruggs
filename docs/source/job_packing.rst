@@ -1,4 +1,4 @@
-Efficient Job Submission
+Packing Runs 
 ===========================
 
 You might find yourself in a situation where you need to run the same code in multiple folders, with each folder containing different input files/input parameters etc. In this case, you need to submit a job for each folder, you can pack these runs within a smaller number of jobs. Let's explore this idea with different examples
